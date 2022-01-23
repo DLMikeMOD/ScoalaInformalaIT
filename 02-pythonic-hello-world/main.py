@@ -33,7 +33,7 @@ prenume = "Milostivul"
 varsta = 420
 prezentare = "Numele Lordului tau este {1} si prenumele este {0}".format(nume, prenume) # util sa dai display la date si sa rulezi inline si poti sa le schimbi direct din acolade cu 0,1,etc, si cand incepi sa scrii indexul in acolade trebui sa le pui peste toate
 print (prezentare)
-prezentare = f"Numele Lordului tau este {nume}, prenumele este {prenume} iar varsta lui este de {varsta} de ani." # exact ca mai sus doar ca nu mai pui format la sfarsit si e mai scurta I like this one so far merge blanao
+prezentare = f"Numele Lordului tau este {nume}, prenumele este {prenume} iar varsta lui este de {varsta} de ani." # exact ca mai sus doar ca nu mai pui format la sfarsit si e mai scurta I like this one so far merge blanao Se numeste Fstring
 print (prezentare)
 
 calcul = nume + prenume
