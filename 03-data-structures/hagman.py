@@ -1,10 +1,3 @@
-# rules
-# daca primul caracter si ultimul se repetau in cuvant, caracterul trebui sa fie afisat iar restul caracatrerelo sunt ascunse
-# 7 sanse de a ghici cuvantul, aftrer you fail 7 times you die
-# word = o _ o _ _ _ 0 _ e e
-# litera_cuvant = input("Alege o litera") # iti merge input de user chair si in consola
-# print
-
 word = 'Ultra Instinct'
 lista_cuvant= []
 for iterator in word:
@@ -34,7 +27,3 @@ while numar_incercari <= 7:
         break
     else:
         print(''.join(lista_cuvant))
-
-# must be very very carefull with god damn indentation
-# def o fucntie poti sa o opresti valoarea none ed la sf daca ii dai "return" fix dupa definiirea ei
-# operatia modulo "%" practif face impartiea cu restul pe care ii dau eu
