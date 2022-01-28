@@ -12,15 +12,14 @@ while numar_incercari <= 7:
     if litera in word.lower():
         for index, valoare in enumerate(word):
             if valoare.lower() == litera:
-                lista_cuvant[index] = litera # pune la indexul respectiv valoarea gasita din tupla de mai sus cu enumarate word
-    else:
+                lista_cuvant[index] = litera
         if litera.lower() not in (lista_litere_incercate):
             numar_incercari += 1
         lista_litere_incercate.add(litera.lower())
         print (f'Litenra nu exista, deja ai incercat urmatorele litere {",".join(lista_litere_incercate)}')
         print (f"Mai ai {8 - numar_incercari} incercari")
 
-    if numar_incercari > 7:     # if 9 - int(numar_incercari) == 0:
+    if numar_incercari > 7:
         print(f"YOU DIED. Cuvantul era {word}")
     elif ''.join(lista_cuvant) == word:
         print("Ai Castigat!")
