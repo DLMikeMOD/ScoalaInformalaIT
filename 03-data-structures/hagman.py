@@ -1,4 +1,4 @@
-word = 'Ultra Instinct'
+word = 'Mirific'
 lista_cuvant= []
 for iterator in word:
     lista_cuvant.append(' _ ')
@@ -13,6 +13,7 @@ while numar_incercari <= 7:
         for index, valoare in enumerate(word):
             if valoare.lower() == litera:
                 lista_cuvant[index] = litera
+    else:
         if litera.lower() not in (lista_litere_incercate):
             numar_incercari += 1
         lista_litere_incercate.add(litera.lower())
