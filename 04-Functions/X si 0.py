@@ -201,7 +201,7 @@ while True:
             print("Hai sa incepem", nume_jucator.upper(), '\n\n')
             print(' ', 1, '|', 2, '|', 3, '\n ---------- \n', '', 4, '|', 5, '|', 6, '\n ----------\n', '', 7,
                   '|', 8, '|', 9, '\n')
-
+# isi face tura aici el primul cu X
             print("NPC alege Acum")
             tura_npc()
             print('\n ', a1, '|', a2, '|', a3, '\n ---------- \n', '', a4, '|', a5, '|', a6, '\n ----------\n', '',
@@ -210,7 +210,7 @@ while True:
             conditii_castig()
             if castiga or remiza:
                 break
-
+# dupa aia pui tu 0 dupa el
             command_2 = int(input('>> Unde vrei sa pui 0? (doar cifre intre 1-9): '))
             verifica_o()
             print('\n ', a1, '|', a2, '|', a3, '\n ---------- \n', '', a4, '|', a5, '|', a6, '\n ----------\n', '',
