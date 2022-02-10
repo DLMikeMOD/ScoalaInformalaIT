@@ -79,18 +79,24 @@
 #     # daca apare ceva exceptie si vrem sa afisam ceva
 
 try:
-    valoare = int(input("Prima cifra din cnp"))
+    valoare = int(input("Prima cifra din cnp: "))
     # impartire = 1/valoare
     lista = [1]
     # lista.append("2")
-    valoare = lista[0.5]
-except TypeError:
-    print("exceptie la tip de eroare")
-except AttributeError:
-    print("eroare la atribuire")
-except ValueError:
-    print("Ai introdus o litera in loc de cifra")
-except Exception as e:  # in cazul asta Exception mai puternic decat ZeroDivision
-    print("Exceptie la impartire", e)
-except ZeroDivisionError:
-    print("Eroare la impartire")
+    # valoare = lista[0.5]
+    print("Trial") #daca pun litera nu mai ajunge aici
+except (TypeError, ZeroDivisionError, Exception, ValueError, AttributeError):
+    print("Ceva eroare")
+else:
+    print("nu exista exceptie")
+finally:
+    print("se exectua oricum")
+print("am iesit din try-except")
+# except AttributeError:
+#     print("eroare la atribuire")
+# except ValueError:
+#     print("Ai introdus o litera in loc de cifra")
+# except Exception as e:  # in cazul asta Exception mai puternic decat ZeroDivision
+#     print("Exceptie la impartire", e)
+# except ZeroDivisionError:
+#     print("Eroare la impartire")
