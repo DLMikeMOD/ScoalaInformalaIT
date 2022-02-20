@@ -2,10 +2,8 @@ if __name__ == '__main__':
     cnp = input("Introdu CNP-ul: ")
 
     if len(cnp) != 13:
-        for i in cnp:
-            if '0' > i < '9':
-                print('contains not digits')
-                break
+        if cnp.isdigit() is False:
+            print('contains not digits')
         print('invalid')
     else:
         sex = cnp[0]
