@@ -50,14 +50,14 @@ def conditii_castig():
         o_castiga = True
     if x_castiga:
         castiga = True
-        return print('EU AM CASTIGAT, mai incearca :D '), castiga
+        print('EU AM CASTIGAT, mai incearca :D '), castiga
     if o_castiga:
         castiga = True
-        return print('Castigatorul este', nume_jucator.upper(), 'BRAVOS' '\n--Runda Terminata--\n'), castiga
+        print('Castigatorul este', nume_jucator.upper(), 'BRAVOS' '\n--Runda Terminata--\n'), castiga
     if a1 != '-' and a2 != '-' and a3 != '-' and a4 != '-' and a5 != '-' and a6 != '-' and a7 != '-' and a8 != '-' \
             and a9 != '-':
         remiza = True
-        return print('Egalitate'), remiza
+        print('Egalitate'), remiza
 
 
 def verifica_o():
