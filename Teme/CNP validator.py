@@ -3,7 +3,7 @@ if __name__ == '__main__':
 # oare este formatul de cnp corect, cifre sa fie exact 13 and so on
     if len(cnp) != 13:
         if cnp.isdigit() is False:
-            print('Baga Numai Numere')
+            print('Baga Numai Numere Dilaule')
         print('Format CNP invalid')
 # Sa verifica asa cum erau in tabel
     else:
