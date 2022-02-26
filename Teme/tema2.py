@@ -35,5 +35,5 @@ def o_functie():
     if is_int:
         print(f"No acilea e numarul tau:  {un_nr}" )
     else:
-        print(f"Ehh EEh EEEEE nu dasi un numar asa ca nu pot sa iti zic decat {0} ")
+        print(f"Ehh EEh EEEEE nu dasi un numar asa ca nu pot sa iti zic decat: {0} ")
 o_functie()
