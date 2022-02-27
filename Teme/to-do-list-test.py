@@ -31,10 +31,12 @@ def add_task(all_items):
         print('Task-ul exista deja!')
         return
 
-# date is tricky with json files as I found out and I need additional help from you Alexandra
+# date is tricky with json files as I found out and I need additional help from you Alexandra,
+# also uncommenting the lines here you must change deadline=whatever newer value will be recognized, so classes and function are verry verry different
     task_date = input('Scrie data si ora in formatul asta te rog (aaaa.ll.zz hh:mm): ')
-    date_format = (task_date, '%Y.%m.%d %H:%M')
-    # actual_date = datetime.strptime(date_format).strftime(task_date)
+    # date_format = (task_date, '%Y.%m.%d %H:%M')
+    # actual_date = datetime.strptime(date_format)
+    # datus = str(datetime.strftime(actual_date))
     # as more info is probably needed using either .strptime or .strftime proves to be problematic when working with Json files and inputs from users as well
 
 # moar inputs
