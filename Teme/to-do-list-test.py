@@ -35,7 +35,7 @@ def add_task(all_items):
     task_date = input('Scrie data si ora in formatul asta te rog (aaaa.ll.zz hh:mm): ')
 
     # the only reason this is commented bellow is because of Json being a prick/ PS if you uncomment this line you have to change deadline=actual_date
-    # actual_date = datetime.datetime.strptime(task_date, '%Y.%m.%d %H:%M')
+    actual_date = datetime.strptime(task_date, '%Y.%m.%d %H:%M')
     # as more info is probably needed using either .strptime or .strftime proves to be problematic when working with Json files and inputs from users as well
 
 # moar inputs
@@ -53,8 +53,10 @@ def add_task(all_items):
             return
 # then adds it to the list all of em
     all_items.append(
-        dict(name=task_name, deadline=task_date, owner=task_owner, category=category)
+        dict(name=task_name, deadline=actual_date, owner=task_owner, category=category)
     )
+
+
 
 # This is the File Writter
 def write_files():
@@ -105,11 +107,12 @@ if __name__ == '__main__':
             if order not in ('asc', 'desc'):
                 print('Invalid order')
                 continue
-# minor problem here with lambda and asceding must ask for more info to Alexandra some things you just can`t find that easy
+
+            # minor problem here with lambda and asceding must ask for more info to Alexandra some things you just can`t find that easy
             ascending = True if order == 'asc' else False
             print(
                 all_tasks_df.sort_values(
-                    by=col, ascending=ascending, key=lambda : col.str.lower()
+                    by=col, ascending=ascending, key = lambda col: col.str.lower()
                 )
             )
         elif option == 'filtrare':
