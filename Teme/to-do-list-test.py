@@ -34,7 +34,7 @@ def add_task(all_items):
 # date is tricky with json files as I found out and I need additional help from you Alexandra
     task_date = input('Scrie data si ora in formatul asta te rog (aaaa.ll.zz hh:mm): ')
 
-    # the only reason this is commented bellow is because of Json being a prick
+    # the only reason this is commented bellow is because of Json being a prick/ PS if you uncomment this line you have to change deadline=actual_date
     # actual_date = datetime.datetime.strptime(task_date, '%Y.%m.%d %H:%M')
     # as more info is probably needed using either .strptime or .strftime proves to be problematic when working with Json files and inputs from users as well
 
@@ -51,7 +51,7 @@ def add_task(all_items):
         else:
             # this skips to the next iteration
             return
-# then adds it to the list
+# then adds it to the list all of em
     all_items.append(
         dict(name=task_name, deadline=task_date, owner=task_owner, category=category)
     )
