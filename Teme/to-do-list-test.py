@@ -33,9 +33,8 @@ def add_task(all_items):
 
 # date is tricky with json files as I found out and I need additional help from you Alexandra
     task_date = input('Scrie data si ora in formatul asta te rog (aaaa.ll.zz hh:mm): ')
-
-    # the only reason this is commented bellow is because of Json being a prick/ PS if you uncomment this line you have to change deadline=actual_date
-    actual_date = datetime.strptime(task_date, '%Y.%m.%d %H:%M')
+    date_format = (task_date, '%Y.%m.%d %H:%M')
+    actual_date = date.strptime(date_format).strftime(date_format)
     # as more info is probably needed using either .strptime or .strftime proves to be problematic when working with Json files and inputs from users as well
 
 # moar inputs
