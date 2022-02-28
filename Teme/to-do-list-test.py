@@ -6,13 +6,13 @@ from datetime import datetime
 
 EXIT_KEYWORD = 'exit'
 
-
+# make the path for later use
 ALL_TASKS_PATH = 'all_tasks.json'
 ALL_CATEGORIES = 'all_categories.json'
 
 categories = ['fizic', 'work', 'cooking', 'shopping', 'gaming']
 
-#always have a prepopulated list at the start of the program usefull whren in test mode
+#always have a prepopulated list at the start of the program usefull when in test mode and stuff
 
 all_tasks = [
     dict(name='T1', deadline='2022.02.03 12:22:01', owner='Mihai', category='work'),
@@ -34,9 +34,12 @@ def add_task(all_items):
 # date is tricky with json files as I found out and I need additional help from you Alexandra,
 # also uncommenting the lines here you must change deadline=whatever newer value will be recognized, so classes and function are verry verry different
     task_date = input('Scrie data si ora in formatul asta te rog (aaaa.ll.zz hh:mm): ')
+
+
+
     # date_format = (task_date, '%Y.%m.%d %H:%M')
-    # actual_date = datetime.strptime(date_format)
-    # datus = str(datetime.strftime(actual_date))
+    actual_date = datetime.strptime(task_date, '%Y.%m.%d %H:%M')
+    datus = datetime.strftime(actual_date, '%Y.%m.%d %H:%M')
     # as more info is probably needed using either .strptime or .strftime proves to be problematic when working with Json files and inputs from users as well
 
 # moar inputs
@@ -54,7 +57,7 @@ def add_task(all_items):
             return
 # then adds it to the list all of em
     all_items.append(
-        dict(name=task_name, deadline=task_date, owner=task_owner, category=category)
+        dict(name=task_name, deadline=datus, owner=task_owner, category=category)
     )
 
 
@@ -66,7 +69,7 @@ def write_files():
     with open(ALL_CATEGORIES, 'w') as fw:
         json.dump(categories, fw)
 
-# extinct animals dataframe rullz
+# extinct animals dataframe rullz using THE PATH
 def init_dataframes():
     all_tasks_df = pd.read_json(ALL_TASKS_PATH)
     categories_df = pd.read_json(ALL_CATEGORIES)
@@ -74,7 +77,8 @@ def init_dataframes():
 
 
 if __name__ == '__main__':
-    print('Yo daca scrii exit o sa ajungi la meniul principal, daca scrii adauga o sa incepi sa adaugi in lista taskuri')
+    print('Yo daca scrii exit o sa ajungi la meniul principal,\n '
+          'daca scrii adauga o sa incepi sa adaugi in lista taskuri')
 
 # use test mode purely for tryiong out deletion sorting and filtering on a predefined list
     test_mode = input('test mode? yes/no: Ar trebui sa selectezi No ca sa poti incepe direct sa testezi ')
