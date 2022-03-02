@@ -31,22 +31,18 @@ def add_task(all_items):
         print('Task-ul exista deja!')
         return
 
-# date is tricky with json files as I found out and I need additional help from you Alexandra,
-# also uncommenting the lines here you must change deadline=whatever newer value will be recognized, so classes and function are verry verry different
     task_date = input('Scrie data si ora in formatul asta te rog (aaaa.ll.zz hh:mm): ')
-
-
 
     # date_format = (task_date, '%Y.%m.%d %H:%M')
     actual_date = datetime.strptime(task_date, '%Y.%m.%d %H:%M')
     datus = datetime.strftime(actual_date, '%Y.%m.%d %H:%M')
-    # as more info is probably needed using either .strptime or .strftime proves to be problematic when working with Json files and inputs from users as well
+    # as more info is probably needed using either .strptime or .strftime proves to be problematic in Json
 
 # moar inputs
     task_owner = input('Persoana responsabila: ')
     category = input('Categorie task: ')
 
-# check the category yonder and try to add it if its not in the main list
+# check the category yonder and try to add it if it`s not in the main list
     if category not in categories:
         print(f'Categoria nu exista! Categoriile sunt: {categories}')
         add_category = input(f'Vrei sa adaugi categoria? Yes/No: ')
@@ -55,14 +51,13 @@ def add_task(all_items):
         else:
             # this skips to the next iteration
             return
+
 # then adds it to the list all of em
     all_items.append(
         dict(name=task_name, deadline=datus, owner=task_owner, category=category)
     )
 
-
-
-# This is the File Writter
+# This is the File Opener
 def write_files():
     with open(ALL_TASKS_PATH, 'w') as fw:
         json.dump(all_tasks, fw)
@@ -75,12 +70,11 @@ def init_dataframes():
     categories_df = pd.read_json(ALL_CATEGORIES)
     return all_tasks_df, categories_df
 
-
 if __name__ == '__main__':
     print('Yo daca scrii exit o sa ajungi la meniul principal,\n '
           'daca scrii adauga o sa incepi sa adaugi in lista taskuri')
 
-# use test mode purely for tryiong out deletion sorting and filtering on a predefined list
+# use test mode purely for trying out deletion sorting and filtering on a predefined list
     test_mode = input('test mode? yes/no: Ar trebui sa selectezi No ca sa poti incepe direct sa testezi ')
     if test_mode == 'no':
 # so here we begin the script with either asking him to exit or to add, if he exits he gets to the main menu
@@ -96,11 +90,12 @@ if __name__ == '__main__':
     write_files()
     all_tasks_df, categories_df = init_dataframes()
 
-# main menu so to speak, not a menu really but within the timeframe tis all I could do
+# main menu-ish
     while True:
         option = input('Introduceti optiunea: afisare / sortare / filtrare / adauga / sterge : ')
         if option == 'afisare':
             print(all_tasks_df)
+
 # so afther the showing stops this is where the hard part begins a 2 in 1 solution to sorting and filtering
         elif option == 'sortare':
             col = input('Coloana: name/deadline/owner/category: ')
@@ -128,12 +123,12 @@ if __name__ == '__main__':
             val = input('Valoare: ')
             print(all_tasks_df[all_tasks_df[col].str.contains(val, case=False)])
 
-# yeah that was one block for filtering, showing asc/desc as the requests were made and here we can just add and delete stuff inside the list
+# yeah that was one block for filtering, showing asc/desc as the requests were made
         elif option == 'adauga':
             add_task(all_tasks)
             write_files()
             all_tasks_df, categories_df = init_dataframes()
-
+# Deletion Protocol
         elif option == 'sterge':
             task_name = input('Numele task-ului de sters: ')
             all_tasks = [t for t in all_tasks if t['name'] != task_name]
