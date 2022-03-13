@@ -58,21 +58,22 @@ x = [0, 1, [2]]
 x[2][0] = 3
 x[2].append(4)
 x[2] = 2
-print(x)
+# print(x)
 
 # correct response: c (a.[0,1,3]; b.[1, 3, 2]; c. [0, 1, 2], d. error)
 #
 # exercise 8
-# def exercitiu(i):
-#     for i in range:
-#         return i
-#
-# x = exercitiu(3)
-# print(x)
+def exercitiu(i):
+    for i in range(0):
+        return i
+
+x = exercitiu(3)
+print(x)
 #
 # correct response: a. error (a. error b. 0 1 2 c.3 d. 0)
 #
 # exercise 9
+
 a = range(10)
 y = [x*x for x in a if x%2 == 0]
 print(y)
@@ -91,7 +92,7 @@ def deposit(account, amount):
 a = make_account()
 print(deposit(a, 10))
 
-# correct response: a. error; b. 0; c. 10; d. None
+# correct response:c   a. error; b. 0; c. 10; d. None
 #
 # exercise 11
 class BankAccount:
@@ -109,7 +110,7 @@ print(a.deposit(100))
 # correct response: d.100 (a. 0; b. None; c. error, d. 100)
 #
 # exercise 12
-# "foo" + 2
+"foo" + 2
 # correct response: a. cannot concatenate "str" and "int" objects
 # a. cannot concatenate "str" and "int" objects
 # b. name "foo" is not defined
@@ -134,7 +135,7 @@ for k in {"x": 1, "y": 2}:
 # correct response: b. x y (a.{"x": 1, "y": 2}; b. x y; c. 1 2; d. error)
 #
 # exercise 15
-# print(list("python"))
+print(list("python"))
 #
 # correct response: d. ['p', 'y', 't', 'h', 'o', 'n']
 # a. ['python']
@@ -151,10 +152,10 @@ print(func(4, 4, 4))
 # correct response: c. 6  (a. 4; b. error; c. 6; d. 15;)
 #
 # exercise 17
-# count = (3, 2, 5, 4)
-# while len(count) < 5:
-#     count0 = count[0]+1
-#     print("Hello Geek")
+count = (3, 2, 5, 4)
+while len(count) < 5:
+    count0 = count[0]+1
+    print("Hello Geek")
 
 # correct response: b. loop infinit in care se afiseaza Hello Geek
 # a. Hello Geek
@@ -190,8 +191,8 @@ print(exercitiu(20))
 def f(a,list=[]):
     for i in range(a):
         list.append(i*i)
-        print(list)
-f(3)
+        print(list) # intersting should move outside of for
+f(3) # ia  de la 0-2 exclude ultimul element cu range
 f(2,[1,2,3])
 f(2)
 #
