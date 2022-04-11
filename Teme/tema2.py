@@ -26,14 +26,14 @@ add_numbers(
 )
 
 def o_functie():
-    un_nr = input('Give me a number or something: ')
+    un_nr = input('Da si tu un numar sau ceva de la tastura BUOI! : ')
     is_int = True
 
     for char in un_nr:
         if not (char >= '0' and char <= '9'):
             is_int = False
     if is_int:
-        print(f"Your gave me a number and it is {un_nr}" )
+        print(f"No acilea e numarul tau:  {un_nr}" )
     else:
-        print(f"Your didn`t give me numbers so your result is {0} ")
+        print(f"Ehh EEh EEEEE nu dasi un numar asa ca nu pot sa iti zic decat: {0} ")
 o_functie()

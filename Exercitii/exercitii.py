@@ -47,8 +47,8 @@
 # x = exercitiu(3)
 # print(x)
 
-
-def funct(*args):
-    return 3 + len(args)
-
-print(funct(4,4,4))
+#
+# def funct(*args):
+#     return 3 + len(args)
+#
+# print(funct(4,4,4))
