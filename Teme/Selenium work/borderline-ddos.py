@@ -8,15 +8,18 @@ from webdriver_manager.chrome import ChromeDriverManager
 # import pandas as pd
 import matplotlib.pyplot as plt
 
-
+# og url in F String format
 def get_url(day):
     return f"https://www.mai.gov.ro/informare-covid-19-grupul-de-comunicare-strategica-{day}-ianuarie-ora-13-00/"
 
-
+#needed
 browser = webdriver.Chrome(ChromeDriverManager().install())
 
+#convert to list
 date = defaultdict(list)
 lista_dates = []
+
+#the for needed for completing and parsing each link in a Fstring format by Xpath and splitting it
 for day in range(20, 28):
     lista_dates.append(f'{day}')
     url = get_url(day)
@@ -25,10 +28,12 @@ for day in range(20, 28):
     rows = table.text.split("\n")
     header = rows[0]
 
+#minor problems hacking and replacing
     for idx, row in enumerate(rows[1:], start=1):
         row = row.replace("Satu Mare", "Satu-Mare")
         row = row.replace("Mun. București", "București")
 
+#counter for table rows except the last 2
         if idx <= 42:
             nr_crt, judet, cazuri, cazuri_noi, incidenta = row.split(" ")
             if cazuri_noi == '–':
@@ -42,6 +47,7 @@ for day in range(20, 28):
                 )
             )
 
+# creating the final memory block and calculations for each cell
 lista_cu_randuri_finale = []
 for jud, valori in date.items():
     cazuri_confirmate = sum([val[0] for val in valori])
@@ -49,6 +55,7 @@ for jud, valori in date.items():
     inci = round(average([val[2] for val in valori]), 2)
 
 
+#sending the new headers for the table
     lista_cu_randuri_finale.append(
         {
             "Judet": jud,
@@ -58,9 +65,9 @@ for jud, valori in date.items():
         }
     )
 
-with open('../../Teste and stuff not for upload or human eyes/10apr/tabel_final.csv', 'w', encoding="utf-8") as fp:
+
+# creating the table itself using encoding on windows is a must
+with open('tabel_final.csv', 'w', encoding="utf-8") as fp:
     writer = csv.DictWriter(fp, fieldnames=list(lista_cu_randuri_finale[0].keys()))
     writer.writeheader()
     writer.writerows(lista_cu_randuri_finale)
-
-
