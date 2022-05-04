@@ -26,4 +26,6 @@ urlpatterns = [
     path ('locations/', include ('app1.urls')),
     path ('companies/', include ('app2.urls')),
     path('profile/', include('userprofile.urls')),
+    path('api/', include('myapi.urls')),
+    
 ]

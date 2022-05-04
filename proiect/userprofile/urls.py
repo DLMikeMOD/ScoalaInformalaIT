@@ -6,4 +6,7 @@ app_name = 'userprofile'
 
 urlpatterns = [
     path('new_account/', views.CreateNewAccount.as_view(), name='new_user'),
+    path('start_timesheet/', views.new_timesheet, name='start_pontaj'),
+    path('stop_timesheet/', views.stop_timesheet, name='oprire_pontaj'),
+
 ]

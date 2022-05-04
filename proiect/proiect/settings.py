@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'app1',
     'app2',
     'userprofile',
+    'rest_framework',
+    'myapi',
 ]
 
 MIDDLEWARE = [
@@ -48,6 +50,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'userprofile.middleware.RefreshMiddleware',
 ]
 
 ROOT_URLCONF = 'proiect.urls'
@@ -63,6 +66,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'proiect.context_processors.is_ready_to_work',
             ],
         },
     },
@@ -122,3 +126,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_REDIRECT_URL = '/locations/'
 LOGOUT_REDIRECT_URL = '/'
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+APPEND_SLASH = False
