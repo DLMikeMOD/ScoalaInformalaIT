@@ -51,16 +51,6 @@ dataset = [
 ]
 
 #Testing here different methods
-# x = [int(d[-1].strip()) if d[-1] != ': ' else 0 for _, d in dataset]
-# print(x)
-# num_bins = len(x)
-# n, bins, patches = plt.hist(x, num_bins, facecolor='blue', alpha=0.5)
-# plt.show()
-
-# Clean
-# plt.clf()
-
-
 # all = []
 # for c, d in dataset:
 #     X = [int(dd[-1]) for dd in d]
@@ -96,16 +86,16 @@ ddict = {}
 ddict[description[0]] = ddict.get(description[0], description[1])
 first = []
 second = []
-for i in dataset:
-    first.append(i[0][0:])
-    second.append(i[1])
+for j in dataset:
+    first.append(j[0][0:])
+    second.append(j[1])
     ddd = dict(zip(first, second))
-    dall = {}
+    caller = {}
 
 # seems to work but pycharms says it as an error
-for d in [ddict, ddd]:
-    dall.update(d)
-    df = pd.DataFrame(dall)
+for i in [ddict, ddd]:
+    caller.update(i)
+    df = pd.DataFrame(caller)
     df = df.T
     #inspired regex fix here
     df.replace(r'[a-zA-Z]|[\s]', '', regex=True, inplace=True)
@@ -135,15 +125,24 @@ def country_avg(x):
 print(country_avg('RO'))
 
 
+x = [int(d[-1].strip()) if d[-1] != ': ' else 0 for _, d in dataset]
+print(x)
+num_bins = len(x)
+n, bins, patches = plt.hist(x, num_bins, facecolor='blue', alpha=0.5)
+plt.show()
+
+#Clean
+plt.clf()
+
 # def year_data(x, y):
 #     df = pd.DataFrame(x)
 #     df = df.T
 #     df = df[y]
 #     return df
-# print(year_data(dall, 8))
+# print(year_data(caller, 8))
 
 # def country_date(x, y):
 #     df = pd.DataFrame(x)
 #     df = df['Country'] + df[y]
 #     return df
-# print(country_date(dall, 'RO'))
+# print(country_date(caller, 'RO'))
