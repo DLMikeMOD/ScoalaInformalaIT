@@ -1,4 +1,5 @@
 import requests
+import test
 
 url = 'http://localhost:8000/api/location'
 
