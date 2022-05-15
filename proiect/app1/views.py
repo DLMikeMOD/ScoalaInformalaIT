@@ -55,4 +55,4 @@ class LocationInactiveView(LoginRequiredMixin, ListView):
 @login_required
 def activate_location(request, pk):
     Location.objects.filter(id=pk).update(active=1)
-    return redirect('locations:lista_locatii')
+    return redirect('locations:lista_locati')

@@ -1,7 +1,7 @@
 from django.db import models
 
-class Location(models.Model):
 
+class Location(models.Model):
     objects = None
     city = models.CharField(max_length=100)
     country = models.CharField(max_length=100)

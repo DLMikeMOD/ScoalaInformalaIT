@@ -11,7 +11,6 @@ class LocationTest(unittest.TestCase):
     def setUp(self):
         self.driver = webdriver.Chrome(ChromeDriverManager().install())
         self.driver.get('http://127.0.0.1:8000')
-
         username = self.driver.find_element(by=By.NAME, value='username')
         username.send_keys('Seitan')
         password = self.driver.find_element(by=By.NAME, value='password')
@@ -22,5 +21,8 @@ class LocationTest(unittest.TestCase):
 
     def test_form(self):
         if value := 'table' in self.driver.page_source:
-            self.logs.write(f"{value}, {datetime.datetime.now()}")
+            self.logs.write(f"{value}, {datetime.datetime.now()}\n")
         assert value
+
+    # def test_add_location(self):
+
