@@ -32,7 +32,7 @@ class UpdateLocationView(LoginRequiredMixin, UpdateView):
     template_name = 'app1/location_form.html'
 
     def get_success_url(self):
-        return reverse('app1/location:lista_locati')
+        return reverse('locations:lista_locati')
 
 @login_required
 def delete_location(request, pk):

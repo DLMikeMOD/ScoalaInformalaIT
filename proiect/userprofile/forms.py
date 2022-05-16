@@ -7,7 +7,7 @@ class NewAccountForm(forms.ModelForm):
 
     class Meta:
         model = User
-        fields = ['first_name', 'last_name', 'email', 'username']
+        fields = ['first_name', 'last_name', 'email', 'username', 'password']
 
         widgets = {
             'first_name': TextInput(attrs={'placeholder': 'first name', 'class': 'form-control'})

@@ -86,7 +86,7 @@ class CreateNewAccount(LoginRequiredMixin, CreateView):
             for _ in range(8))
         if User.objects.filter(id=self.object.id).exists():
             user_instance = User.objects.get(id=self.object.id)
-            user_instance.set_password(psw)
+            user_instance.set_password(user_instance.password)
             user_instance.save()
             content = f"Datele de autentificare sunt: \n username: {user_instance.username} \n password: {psw}"
             msg_html = render_to_string('registration/invite_user.html', {"content_email": content})
